@@ -1,0 +1,51 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	color: #444;
+	font-family: Arial;
+}
+
+.headbar {
+	background: #eee;
+	border-bottom: 1px #ddd solid;
+	padding: 10px 20px;
+}
+.headbar button {
+	background-color: rgb(47, 108, 202);
+	color: white;
+	border: none;
+	padding: 7px 12px;
+	font-size: 14px;
+	border-radius: 3px;
+	outline: 0;
+	cursor: pointer;
+}
+.headbar button:hover {
+	background-color: rgb(59, 121, 218);
+}
+.headbar button[disabled],
+.headbar button[disabled]:hover,
+.headbar button[disabled]:active {
+	cursor: default;
+	background-color: rgb(97, 137, 205);
+}
+
+.conversations {
+	padding: 20px;
+}
+.conversations .left {
+	text-align: left;
+}
+.conversations .right {
+	text-align: right;
+	color: grey;
+}
+/*
+** Emojis
+*/
+.emoji {
+	width: 20px;
+	height: 20px;
+	position: relative;
+	top: 3px;
+}
