@@ -3,7 +3,7 @@ var gui = require('nw.gui');
 var pdf = require('html-pdf');
 var emoji = require('emoji-parser');
 // https://github.com/frissdiegurke/emoji-parser
-emoji.init('./img/emoji').update();
+// emoji.init('./img/emoji').update();
 // listing of emojis: http://www.emoji-cheat-sheet.com/
 // Get application path
 var win = gui.Window.get();
@@ -41,7 +41,7 @@ function toPDF() {
 	// html = emoji.parse(html, path + '/img/emoji');
 	// Create PDF
 	pdf.create(html, options, function (err, res) {
-		// console.log(err, res);
+		console.log(err, res);
 		// alert('Done!');
 		$('#export').html('Save in PDF').removeAttr('disabled');
 		var child = spawn('open', [ options.filename ]);

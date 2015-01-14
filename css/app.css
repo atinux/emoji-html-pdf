@@ -1,8 +1,9 @@
 html, body {
 	margin: 0;
 	padding: 0;
-	color: #444;
-	font-family: Arial;
+	color: black;
+	font-size: 13.5px;
+	font-family: 'Times New Roman';
 }
 
 .headbar {
@@ -31,14 +32,15 @@ html, body {
 }
 
 .conversations {
-	padding: 20px;
+	padding: 0;
 }
 .conversations .left {
 	text-align: left;
+	color: #000;
 }
 .conversations .right {
 	text-align: right;
-	color: grey;
+	color: #777;
 }
 /*
 ** Emojis

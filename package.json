@@ -8,8 +8,14 @@
     "frame": true
   },
   "dependencies": {
+    "async": "^0.9.0",
+    "csv": "~0.3.6",
+    "ejs": "^2.1.4",
+    "emoji-data": "^0.2.0",
     "emoji-parser": "^0.1.1",
-    "html-pdf": "^0.3.0",
+    "emoji-strip": "0.0.3",
+    "emojify.js": "^0.9.5",
+    "html-pdf": "https://github.com/Atinux/node-html-pdf/tarball/master",
     "nodewebkit": "^0.11.5"
   },
   "scripts": {

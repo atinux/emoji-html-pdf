@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <title><%= book.title %></title>
+    <link href="css/app.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/print.css" rel="stylesheet" type="text/css" media="print"/>
+    <script type="text/javascript" src="js/libs/jquery.min.js"></script>
+</head>
+<body>
+    <div class="no-print headbar">
+        <button id="export" onclick="toPDF();">Save in PDF</button>
+    </div>
+    <div class="conversations">
+        <% messages.forEach(function (message) { %>
+            <p class="<%= (client.from === message[1] ? 'right' : 'left') %>"><%- message[3] %></p>
+        <% }); %>
+    </div>
+</html>
+</body>
