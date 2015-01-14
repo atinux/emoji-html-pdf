@@ -202,14 +202,14 @@ constructClientFromCSV(idClient, function (client) {
 				height: '190mm', // allowed units: mm, cm, in, px
 				orientation: 'portrait', // or landscape
 				// Page options
-				border: '25mm', // default is 0, units: mm, cm, in, px
+				border: '5mm', // default is 0, units: mm, cm, in, px
 				// header: {
 				// 	height: '10mm',
 				// 	contents: '<div style="text-align: center;border-bottom: 1px #ddd solid;">Author: Chopin brothers</div>',
 				// },
 				footer: {
 					height: '7mm',
-					contents: '<div style="text-align: center;border: 1px #ddd solid;">{{page}}</div>',
+					contents: '<div style="text-align: center;font-size: 12px;">{{page}}</div>',
 				},
 				// File options
 				type: 'pdf',

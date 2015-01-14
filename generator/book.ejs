@@ -9,9 +9,7 @@
     <script type="text/javascript" src="js/libs/jquery.min.js"></script>
 </head>
 <body>
-    <div class="no-print headbar">
-        <button id="export" onclick="toPDF();">Save in PDF</button>
-    </div>
+    <div style="height: 600px;width: 100%;">LOGO</div>
     <div class="conversations">
         <% messages.forEach(function (message) { %>
             <p class="<%= (client.from === message[1] ? 'right' : 'left') %>"><%- message[3] %></p>

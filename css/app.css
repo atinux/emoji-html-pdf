@@ -32,7 +32,7 @@ html, body {
 }
 
 .conversations {
-	padding: 0;
+	padding: 60px;
 }
 .conversations .left {
 	text-align: left;
