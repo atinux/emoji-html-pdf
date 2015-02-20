@@ -1,46 +1,69 @@
+/*
+*, *:before, *:after {
+	box-sizing: border-box
+}
+*/
 html, body {
 	margin: 0;
 	padding: 0;
 	color: black;
-	font-size: 13.5px;
+	font-size: 16px;
 	font-family: 'Times New Roman';
 }
 
-.headbar {
-	background: #eee;
-	border-bottom: 1px #ddd solid;
-	padding: 10px 20px;
+.title {
+	color: #000;
+	font-weight: bold;
+	font-size: 41px;
+	margin-top: 125px;
 }
-.headbar button {
-	background-color: rgb(47, 108, 202);
-	color: white;
-	border: none;
-	padding: 7px 12px;
-	font-size: 14px;
-	border-radius: 3px;
-	outline: 0;
-	cursor: pointer;
+.title .grey {
+	color: #868786;
 }
-.headbar button:hover {
-	background-color: rgb(59, 121, 218);
-}
-.headbar button[disabled],
-.headbar button[disabled]:hover,
-.headbar button[disabled]:active {
-	cursor: default;
-	background-color: rgb(97, 137, 205);
+.logo {
+	width: 225px;
+	margin-top: 152px;
 }
 
-.conversations {
-	padding: 60px;
+.page {
+	/*border: 1px solid #ddd;*/
 }
-.conversations .left {
+
+.month {
+	color: #000;
+	font-weight: bold;
+	font-size: 41px;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	margin-top: 45px;
+	margin-bottom: 140px;
+}
+
+.day {
+	color: #000;
+	text-align: center;
+	font-weight: bold;
+	font-size: 16px;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+	margin-bottom: 17px;
+}
+
+.left {
 	text-align: left;
 	color: #000;
+	padding: 0 28px 0 12px;
 }
-.conversations .right {
+.right {
 	text-align: right;
 	color: #777;
+	padding: 0 22px 0 18px;
 }
 /*
 ** Emojis
@@ -49,5 +72,5 @@ html, body {
 	width: 20px;
 	height: 20px;
 	position: relative;
-	top: 3px;
+	top: -2px;
 }

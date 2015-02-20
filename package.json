@@ -3,8 +3,8 @@
   "main": "index.html",
   "window": {
     "toolbar": true,
-    "height": 400,
-    "width": 400,
+    "height": 680,
+    "width": 523,
     "frame": true
   },
   "dependencies": {
@@ -16,6 +16,7 @@
     "emoji-strip": "0.0.3",
     "emojify.js": "^0.9.5",
     "html-pdf": "https://github.com/Atinux/node-html-pdf/tarball/master",
+    "moment": "^2.9.0",
     "nodewebkit": "^0.11.5"
   },
   "scripts": {

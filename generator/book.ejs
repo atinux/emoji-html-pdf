@@ -1,19 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta charset="utf-8">
-    <title><%= book.title %></title>
-    <link href="css/app.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="css/print.css" rel="stylesheet" type="text/css" media="print"/>
-    <script type="text/javascript" src="js/libs/jquery.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta charset="utf-8">
+	<base href="<%= path %>/" />
+	<title><%= book.title %></title>
+	<link href="css/app.css" rel="stylesheet" type="text/css" media="all"/>
+	<link href="css/print.css" rel="stylesheet" type="text/css" media="print"/>
+	<script type="text/javascript" src="js/libs/jquery.min.js"></script>
+	<style type="text/css">
+	body {
+		width: <%= book.sizes.width %>px;
+	}
+	.page {
+		width: <%= book.sizes.width %>px;
+		min-height: <%= book.sizes.height %>px;
+		padding: <%= book.sizes.margin %>px;
+		padding-bottom: <%= book.sizes.margin + 54 %>px;
+	}
+	</style>
 </head>
 <body>
-    <div style="height: 600px;width: 100%;">LOGO</div>
-    <div class="conversations">
-        <% messages.forEach(function (message) { %>
-            <p class="<%= (client.from === message[1] ? 'right' : 'left') %>"><%- message[3] %></p>
-        <% }); %>
-    </div>
+	<div class="page" style="text-align: center;">
+		<div class="title">
+			<%= client.to %><br>
+			<span class="grey">&amp; <%= client.from %></span>
+		</div>
+		<img class="logo" src="images/logo.png" />
+	</div>
+	<div class="page"></div>
+	<div class="page"></div>
+	<div class="page"></div>
+	<% var lastMonth = null,
+		   lastDay = null;
+	messages.forEach(function (message, i) {
+		var newPage = false;
+		if (message.month !== lastMonth) { newPage = true; }
+		if (newPage) {
+			if (i > 0) { %></div><% } %>
+			<div class="page _toUpdate">
+		<% }
+		if (message.month !== lastMonth) { %><h1 class="line month"><%= message.monthDisplay %></h1><% }
+		if (message.day !== lastDay) { %><h2 class="line day"><%= message.dayDisplay %></h1><% } %>
+		<p class="line <%= (client.from === message.from ? 'right' : 'left') %>"><%- message.body %></p>
+		<%
+		lastMonth = message.month;
+		lastDay = message.day;
+	}); %>
+	</div>
+	<div class="page"></div>
+	<div class="page"></div>
+	<script type="text/javascript">
+	$(function () {
+		setTimeout(function() {
+			var pageHeight = <%= book.sizes.height + book.sizes.margin + book.sizes.margin + 54 %>;
+			$('._toUpdate').each(function () {
+				var $page = $(this),
+					actualPageHeight = $page.outerHeight(true);
+				if (actualPageHeight > pageHeight) {
+					// console.log('Need to update page!', actualPageHeight, pageHeight);
+					// Construct a page
+					var lines = $page.find('.line'),
+						$newPage = $('<div>').addClass('page');
+					$page.after($newPage);
+					for (var i = 0, l = lines.length; i < l; i++) {
+						$newPage.append(lines[i]);
+						if ($newPage.outerHeight(true) > pageHeight) {
+							var $currentPage = $newPage;
+							$newPage = $('<div>').addClass('page');
+							$currentPage.after($newPage);
+							$newPage.append(lines[i]);
+						}
+					}
+					$page.remove();
+				}
+				setTimeout(function() {
+					console.log('__DONE__'); // Information PhantomJS to start rendering the web page
+				}, 10);
+			});
+		}, 1000);
+	});
+	</script>
 </html>
 </body>
